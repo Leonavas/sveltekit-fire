@@ -2,6 +2,7 @@
 node_modules
 /build
 /.svelte-kit
-/package
+/package/
+!/package/package.json
 .env
 src/styles/tailwind-output.css
