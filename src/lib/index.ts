@@ -1,7 +1,16 @@
-export { default as Test } from './Test.svelte';
-export { default as CollectionSnap } from './CollectionSnap.svelte';
-export { default as User } from './User.svelte';
-export { default as DocSnap } from './DocSnap.svelte';
-export { default as Doc } from './Doc.svelte';
-export { initFirebase } from './firebase';
-export { userStore } from './auth';
+import { initFirebase } from './firebase';
+import { userStore } from './auth';
+import Doc from './Doc.svelte';
+import DocRealtime from './DocRealtime.svelte';
+import CollectionRealtime from './CollectionRealtime.svelte';
+import User from './User.svelte';
+
+export {
+    initFirebase,
+    userStore,
+    Doc,
+    DocRealtime,
+    CollectionRealtime,
+    User
+}
+

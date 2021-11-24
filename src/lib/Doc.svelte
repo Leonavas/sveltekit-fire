@@ -2,8 +2,6 @@
 	// export let path;
 	export let log = false;
 	export let maxWait = 10000;
-	//export let once = false;
-	//import { onDestroy, onMount, createEventDispatcher } from "svelte";
 
 	let loading = true;
 	let errored = false;

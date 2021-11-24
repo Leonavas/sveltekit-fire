@@ -1,6 +1,6 @@
 <script>
 	import '../app.css';
-	import { initFirebase } from 'sveltekit-fire';
+	import { initFirebase } from '$lib';
 
 	initFirebase();
 </script>

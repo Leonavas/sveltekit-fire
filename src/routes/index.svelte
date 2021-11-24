@@ -1,7 +1,7 @@
 <script>
 	import { getAuth, signOut } from '@firebase/auth';
 
-	import { Test, User, Doc } from 'sveltekit-fire';
+	import { User, Doc } from '$lib';
 	//import { userStore } from 'sveltekit-fire';
 	import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
@@ -23,7 +23,7 @@
 <Doc log={true} let:data={post} let:error={error}>
 	{post.title}
 	<div slot="loading">Loading...</div>
-	<div slot="fallback">Deu Merda {error}</div>
+	<div slot="fallback">{error}</div>
 </Doc>
 <User let:user on:user>
 	{user.displayName}

@@ -3,13 +3,12 @@ import { getFirestore, doc, collection, onSnapshot } from 'firebase/firestore';
 import { initFirebase } from 'sveltekit-fire';
 interface docOptions {
 	startWith: any;
-	log: any;
-	once: any;
+	log: boolean;
 }
 
 // Svelte Store for Firestore Document
 export function docStore(path, opts: docOptions) {
-	const { startWith, log, maxWait, once } = { maxWait: 10000, ...opts };
+	const { startWith, log, maxWait } = { maxWait: 10000, ...opts };
 
 	initFirebase();
 	// Create the Firestore Reference
@@ -59,9 +58,6 @@ export function docStore(path, opts: docOptions) {
 
 				// Emit next value
 				next(data, null);
-
-				// Teardown after first emitted value if once
-				once && _teardown();
 			},
 
 			// Handle firebase thrown errors
@@ -94,7 +90,7 @@ export function docStore(path, opts: docOptions) {
 // Svelte Store for Firestore Collection
 export function collectionStore(path, queryFn, opts: docOptions) {
 	initFirebase();
-	const { startWith, log, maxWait, once, idField, refField } = {
+	const { startWith, log, maxWait, idField, refField } = {
 		idField: 'id',
 		refField: 'ref',
 		maxWait: 10000,
@@ -153,7 +149,6 @@ export function collectionStore(path, queryFn, opts: docOptions) {
 					console.groupEnd();
 				}
 				next(data, null);
-				once && _teardown();
 			},
 
 			(error) => {
