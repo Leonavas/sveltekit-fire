@@ -9,7 +9,13 @@
 	let data = {};
 
 	import { doc, getDoc, getFirestore } from 'firebase/firestore/lite';
+	import { onMount } from 'svelte';
+	import { getApps } from 'firebase/app';
+	import { initFirebase } from './firebase';
 
+	if (getApps().length === 0) {
+		initFirebase();
+	}
 	const ref = doc(getFirestore(), 'posts/how-can-i-get-involved');
 	getDoc(ref)
 		.then((snap) => {
@@ -42,6 +48,6 @@
 {:else if errored}
 	<slot name="fallback" />
 {:else}
-	<slot {data} {error} ref={ref} />
+	<slot {data} {error} {ref} />
 {/if}
 <slot name="after" />

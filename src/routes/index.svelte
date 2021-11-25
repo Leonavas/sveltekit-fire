@@ -1,7 +1,7 @@
 <script>
 	import { getAuth, signOut } from '@firebase/auth';
 
-	import { User, Doc } from '$lib';
+	import { User, Doc, CollectionRealtime } from 'sveltekit-fire';
 	//import { userStore } from 'sveltekit-fire';
 	import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 
@@ -27,12 +27,15 @@
 </Doc>
 <User let:user on:user>
 	{user.displayName}
-	<button class="text-[#f1f101]"
+	<button class="text-[#ff3e00]"
 		on:click={() => {
 			signOut(getAuth());
 		}}>
 		Logout
 	</button>
+	<p class="text-svelte">Svelte</p>
+	<p class="text-firebase">Firebase</p>
+	<p class="text-brand-500">Sveltekit Fire</p>
 	<div slot="signed-out">
 		<button on:click={googleLogin}>Google Login</button>
 	</div>
@@ -41,14 +44,14 @@
 <br />
 <br />
 <br />
-<!-- <Collection log={true} path={'posts'} let:data let:last>
+<!-- <CollectionRealtime log={true} path={'posts'} let:data let:last>
 
 	{#each data as post}{post.title}{/each}
 	<br />
 	{last.title}
 	<div slot="loading">Carregando...</div>
 	
-</Collection> -->
+</CollectionRealtime> -->
 <br />
 <br />
 <br />

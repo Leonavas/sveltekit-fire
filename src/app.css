@@ -1,4 +1,56 @@
-/* Write your global styles here, in PostCSS syntax */
+@import url('/static/prism.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: normal;
+		font-weight: 400;
+		font-display: swap;
+		src: url(/dm-sans/DMSans-Regular.woff2) format('woff2');
+	}
+
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: normal;
+		font-weight: 800;
+		font-display: swap;
+		src: url(/dm-sans/DMSans-Bold.woff2) format('woff2');
+	}
+
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: italic;
+		font-weight: 800;
+		font-display: swap;
+		src: url(/dm-sans/DMSans-BoldItalic.woff2) format('woff2');
+	}
+
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: italic;
+		font-weight: 400;
+		font-display: swap;
+		src: url(/dm-sans/DMSans-Italic.woff2) format('woff2');
+	}
+
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: normal;
+		font-weight: 600;
+		font-display: swap;
+		src: url(/dm-sans/DMSans-Medium.woff2) format('woff2');
+	}
+
+	@font-face {
+		font-family: 'DM Sans';
+		font-style: italic;
+		font-weight: 600;
+		font-display: swap;
+		src: url(/dm-sans/DMSans-MediumItalic.woff2) format('woff2');
+	}
+
+}
