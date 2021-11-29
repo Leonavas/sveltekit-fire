@@ -1,15 +1,23 @@
-<div class="sticky top-0 z-40 lg:z-50 w-full max-w-7xl mx-auto bg-white flex-none flex">
+<script>
+	import Logo from '../icons/Logo.svelte';
+</script>
+
+<div class="sticky top-0 z-40 lg:z-50 w-full max-w-7xl mx-auto flex-none flex h-20">
 	<div
 		class="flex-none pl-4 sm:pl-6 xl:pl-8 flex items-center border-b border-gray-200 lg:border-b-0
 		lg:w-60 xl:w-72">
 		<a class="overflow-hidden w-10 md:w-auto" href="/">
-			LOGO
+			<Logo />
 		</a>
 	</div>
 	<div
-		class="flex-auto border-b border-gray-200 h-18 flex items-center justify-between px-4 sm:px-6
-		lg:mx-6 lg:px-0 xl:mx-8 bg-warmGray-50">
-		<button
+		class="flex-auto border-b border-gray-200 h-18 flex items-center justify-between 
+		 lg:px-0 bg-warmGray-50">
+		<div>
+			
+			<!-- <h2 class="font-bold text-2xl text-gray-500">{$page.path.replace("-", " ").replace("/", "")}</h2> -->
+		</div>
+		<!-- <button
 			type="button"
 			class="group leading-6 font-medium flex items-center space-x-3 sm:space-x-4
 			hover:text-gray-600 transition-colors duration-200 w-full py-2">
@@ -41,12 +49,11 @@
 				<kbd class="font-sans">K</kbd>
 				<span class="sr-only">to search</span>
 			</span>
-		</button>
+		</button> -->
 		<div class="lg:w-64 pl-8 flex-shrink-0 flex items-center justify-end space-x-6">
 			<a
 				href="https://github.com/Leonavas/sveltekit-fire"
 				class="text-gray-400 hover:text-gray-500 transition-colors duration-200">
-				<span class="sr-only">Tailwind CSS on GitHub</span>
 				<svg width="20" height="20" viewBox="0 0 16 16" fill="currentColor">
 					<path
 						fill-rule="evenodd"

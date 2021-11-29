@@ -1,8 +1,8 @@
 <script>
 	import '../app.css';
 	import { initFirebase } from '$lib';
-	import DemoHeader from '$lib/demo/Header.svelte';
-	import DemoSidebar from '$lib/demo/Sidebar.svelte';
+	import DemoHeader from '$lib/demo/layout/Header.svelte';
+	import DemoSidebar from '$lib/demo/layout/Sidebar.svelte';
 
 	//initFirebase();
 </script>
