@@ -14,7 +14,7 @@
     let store = collectionStore(path, query, opts);
     const dispatch = createEventDispatcher();
     let unsub;
-    // Props changed
+
     $: {
       if (unsub) {
         unsub();

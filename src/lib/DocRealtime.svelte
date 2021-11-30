@@ -13,7 +13,7 @@
     let store = docStore(path, opts);
     const dispatch = createEventDispatcher();
     let unsub;
-    // Props changed
+
     $: {
       if (unsub) {
         // Unsub and create new store

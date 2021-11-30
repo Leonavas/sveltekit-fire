@@ -28,8 +28,7 @@
 
 			mandatoryKeys.forEach((key) => {
 				if (!parsedConfig.hasOwnProperty(key)) {
-					// parseError = `Missing key: ${key}`;
-					throw new Error(`Missing key: ${key}`);
+					throw `Missing key: ${key}`;
 				}
 			});
 
@@ -55,7 +54,6 @@ VITE_PUBLIC_FIREBASE_USER_PERSISTENCE=local
 
 		parseError = '';
 	} catch (err) {
-		//parseError = 'Firebase Config is not a valid JSON object';
 		parseError = err;
 		generatedEnvFile = '';
 	}
@@ -103,5 +101,4 @@ const firebaseConfig = {
 			</pre>
 		</div>
 	{/if}
-	<!-- <CodeHighlight /> -->
 </div>

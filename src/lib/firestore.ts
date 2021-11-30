@@ -38,7 +38,7 @@ export function docStore(path, opts: docOptions) {
 		_waitForIt =
 			maxWait &&
 			setTimeout(
-				() => _loading && next(null, new Error(`Timeout at ${maxWait}. Using fallback slot.`)),
+				() => _loading && next(null, new Error(`Timeout at ${maxWait}ms. Using fallback slot.`)),
 				maxWait
 			);
 
@@ -123,7 +123,7 @@ export function collectionStore(path, queryFn, opts: docOptions) {
 		_waitForIt =
 			maxWait &&
 			setTimeout(
-				() => _loading && next(null, new Error(`Timeout at ${maxWait}. Using fallback slot.`)),
+				() => _loading && next(null, new Error(`Timeout at ${maxWait}ms. Using fallback slot.`)),
 				maxWait
 			);
 
