@@ -2,8 +2,9 @@
 	import { onMount } from 'svelte';
 	import Prism from 'prismjs';
 	import 'prism-svelte';
-	export let lang = 'js';
 	import { fade } from 'svelte/transition';
+	
+	export let lang = 'js';
 
 	onMount(() => {
 		Prism.highlightAll();
@@ -54,7 +55,7 @@
 		</svg>
 	{/if}
 
-	<pre class="!pt-7">
+	<pre class="!py-5">
 		<code class={`language-${lang}`}>{code}</code>
 	</pre>
 </div>

@@ -59,24 +59,22 @@ VITE_PUBLIC_FIREBASE_USER_PERSISTENCE=local
 	}
 </script>
 
-<div class="prose">
-
-	<h1 class="text-xl">Env file generator</h1>
-	<p>
-		Utility tool to convert a firebase configuration object into
-		<span class="text-brand-600 font-bold">Sveltekit Fire</span>
-		.env file
-	</p>
-	<span class="text-sm">
-		Paste your
-		<code class="italic font-bold">firebaseConfig</code>
-		here
-	</span>
-	<textarea
-		bind:value={firebaseConfig}
-		class="rounded-lg border-warmGray-200 border bg-white h-80 w-full text-warmGray-600 resize-none
-		py-2 px-4"
-		placeholder={`//example:
+<h1 class="text-xl">Env file generator</h1>
+<p>
+	Utility tool to convert a firebase configuration object into
+	<span class="text-brand-600 font-bold">Sveltekit Fire</span>
+	.env file
+</p>
+<span class="text-sm">
+	Paste your
+	<code class="italic font-bold">firebaseConfig</code>
+	here
+</span>
+<textarea
+	bind:value={firebaseConfig}
+	class="rounded-lg border-warmGray-200 border bg-white h-80 w-full text-warmGray-600 resize-none
+	py-2 px-4"
+	placeholder={`//example:
 const firebaseConfig = {
     apiKey: "",
     authDomain: "",
@@ -86,19 +84,18 @@ const firebaseConfig = {
     appId: "",
     measurementId: ""
 };`} />
-	{#if !!parseError}
-		<div class="text-rose-600">{parseError}</div>
-	{/if}
+{#if !!parseError}
+	<div class="text-rose-600">{parseError}</div>
+{/if}
 
-	{#if !!generatedEnvFile}
-		<p>Here is your .env file:</p>
-		<div class="relative group">
-			<ClipboardCopy
-				class="absolute top-2 right-2 z-50 cursor-pointer text-gray-500 group-hover:text-gray-50"
-				textToCopy={generatedEnvFile} />
-			<pre>
-				<code>{generatedEnvFile}</code>
-			</pre>
-		</div>
-	{/if}
-</div>
+{#if !!generatedEnvFile}
+	<p>Here is your .env file:</p>
+	<div class="relative group">
+		<ClipboardCopy
+			class="absolute top-2 right-2 z-50 cursor-pointer text-gray-500 group-hover:text-gray-50"
+			textToCopy={generatedEnvFile} />
+		<pre>
+			<code>{generatedEnvFile}</code>
+		</pre>
+	</div>
+{/if}

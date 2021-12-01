@@ -1,22 +1,22 @@
 <script>
 	import '../app.css';
 	import { initFirebase } from '$lib';
-	import DemoHeader from '$lib/demo/layout/Header.svelte';
-	import DemoSidebar from '$lib/demo/layout/Sidebar.svelte';
+	import Header from '$lib/demo/layout/Header.svelte';
+	import Sidebar from '$lib/demo/layout/Sidebar.svelte';
+	import TableOfContents from '$lib/demo/layout/TableOfContents.svelte';
 
-	initFirebase();
+	//initFirebase();
 </script>
 
-<DemoHeader />
+<Header />
 
 <div class="w-full max-w-7xl mx-auto">
 	<div class="lg:flex">
-		<DemoSidebar />
-		
+		<Sidebar />
 
 		<div class="min-w-0 w-full flex-auto lg:static lg:max-h-full lg:overflow-visible">
 			<div class="w-full flex">
-				<div class="min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16 prose">
+				<div id="content" class="min-w-0 flex-auto px-4 sm:px-6 xl:px-8 pt-10 pb-24 lg:pb-16 prose prose-brand-600">
 
 					<slot />
 				</div>
@@ -24,7 +24,7 @@
 					<div
 						class="flex flex-col justify-between overflow-y-auto fixed max-h-(screen-18) pt-10 pb-6
 						top-18">
-						TABLE OF CONTENTS
+						<TableOfContents />
 					</div>
 				</div>
 			</div>

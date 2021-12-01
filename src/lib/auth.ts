@@ -8,7 +8,7 @@ import {
 	indexedDBLocalPersistence,
 	browserSessionPersistence,
 	inMemoryPersistence,
-	connectAuthEmulator,
+	connectAuthEmulator
 } from 'firebase/auth';
 import { getApps } from 'firebase/app';
 import { initFirebase } from './firebase';
@@ -17,9 +17,19 @@ export function userStore() {
 	const storageKey = 'user';
 	let cached = null;
 
+	const authStatePersistence = import.meta.env.VITE_PUBLIC_FIREBASE_USER_PERSISTENCE;
 
-	if (browser) {
-		cached = JSON.parse(window.localStorage.getItem(storageKey));
+	if (browser && !!authStatePersistence) {
+		switch (authStatePersistence) {
+			case 'local':
+				cached = JSON.parse(window.localStorage.getItem(storageKey));
+				break;
+			case 'session':
+				cached = JSON.parse(window.sessionStorage.getItem(storageKey));
+				break;
+			default:
+				break;
+		}
 	}
 
 	const store = writable(cached, () => {
@@ -27,7 +37,6 @@ export function userStore() {
 			initFirebase();
 		}
 
-		const authStatePersistence = import.meta.env.VITE_PUBLIC_FIREBASE_USER_PERSISTENCE;
 		if (browser && !!authStatePersistence) {
 			switch (authStatePersistence) {
 				case 'local':
@@ -36,12 +45,14 @@ export function userStore() {
 				case 'session':
 					setPersistence(getAuth(), browserSessionPersistence);
 					break;
-				case 'memory':
-					setPersistence(getAuth(), inMemoryPersistence);
-					break;
-				case 'indexed':
-					setPersistence(getAuth(), indexedDBLocalPersistence);
-					break;
+				// case 'memory':
+				// 	setPersistence(getAuth(), inMemoryPersistence);
+				// 	break;				// case 'memory':
+				// 	setPersistence(getAuth(), inMemoryPersistence);
+				// 	break;
+				// case 'indexed':
+				// 	setPersistence(getAuth(), indexedDBLocalPersistence);
+				// 	break;
 				default:
 					break;
 			}
@@ -57,12 +68,30 @@ export function userStore() {
 		onAuthStateChanged(getAuth(), (u) => {
 			if (u) {
 				set(u);
-				if (browser) {
-					window.localStorage.setItem(storageKey, JSON.stringify(u));
+				if (browser && !!authStatePersistence) {
+					switch (authStatePersistence) {
+						case 'local':
+							window.localStorage.setItem(storageKey, JSON.stringify(u));
+							break;
+						case 'session':
+							window.sessionStorage.setItem(storageKey, JSON.stringify(u));
+							break;
+						default:
+							break;
+					}
 				}
 			} else {
 				if (browser) {
-					window.localStorage.removeItem(storageKey);
+					switch (authStatePersistence) {
+						case 'local':
+							window.localStorage.removeItem(storageKey);
+							break;
+						case 'session':
+							window.sessionStorage.removeItem(storageKey);
+							break;
+						default:
+							break;
+					}
 				}
 				set(null);
 			}

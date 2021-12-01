@@ -4,12 +4,12 @@
 	const menu = [
 		{ divider: true, label: 'Getting Started' },
 		{ label: 'Installation', path: '/'},
-		{ label: 'Configuring', path: '/configuring' },
+		{ label: 'Config Files', path: '/env-generator' },
 		{ divider: true, label: 'Components' },
 		{ label: 'Document', path: '/components/document' },
 		{ label: 'Collection', path: '/components/collection' },
-		{ divider: true, label: 'Utils' },
-		{ label: '.env Generator', path: '/env-generator' },
+		// { divider: true, label: 'Utils' },
+		// { label: '.env Generator', path: '/env-generator' },
 		{ divider: true, label: 'Wanna help?' },
 		{ label: 'Contributing', path: '/contributing' }
 	];
