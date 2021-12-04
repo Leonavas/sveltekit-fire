@@ -12,6 +12,35 @@ export function initFirebase() {
 
 	if (getApps().length === 0) {
 		const env = import.meta.env;
+
+		if (!env.hasOwnProperty('VITE_PUBLIC_FIREBASE_API_KEY')) {
+			throwMissingKeyError('VITE_PUBLIC_FIREBASE_API_KEY');
+		}
+
+		if (!env.hasOwnProperty('VITE_PUBLIC_FIREBASE_AUTH_DOMAIN')) {
+			throwMissingKeyError('VITE_PUBLIC_FIREBASE_AUTH_DOMAIN');
+		}
+
+		if (!env.hasOwnProperty('VITE_PUBLIC_FIREBASE_DATABASE_URL')) {
+			throwMissingKeyError('VITE_PUBLIC_FIREBASE_DATABASE_URL');
+		}
+
+		if (!env.hasOwnProperty('VITE_PUBLIC_FIREBASE_PROJECT_ID')) {
+			throwMissingKeyError('VITE_PUBLIC_FIREBASE_PROJECT_ID');
+		}
+
+		if (!env.hasOwnProperty('VITE_PUBLIC_FIREBASE_STORAGE_BUCKET')) {
+			throwMissingKeyError('VITE_PUBLIC_FIREBASE_STORAGE_BUCKET');
+		}
+
+		if (!env.hasOwnProperty('VITE_PUBLIC_FIREBASE_MESSAGING_SENDER_ID')) {
+			throwMissingKeyError('VITE_PUBLIC_FIREBASE_MESSAGING_SENDER_ID');
+		}
+
+		if (!env.hasOwnProperty('VITE_PUBLIC_FIREBASE_APP_ID')) {
+			throwMissingKeyError('VITE_PUBLIC_FIREBASE_APP_ID');
+		}
+
 		const firebaseConfig = {
 			apiKey: env.VITE_PUBLIC_FIREBASE_API_KEY.toString(),
 			authDomain: env.VITE_PUBLIC_FIREBASE_AUTH_DOMAIN.toString(),
@@ -30,7 +59,7 @@ export function initFirebase() {
 			if (useAnalytics && !dev) {
 				initializeAnalytics(firebaseApp);
 			}
-	
+
 			if (usePerformance && !dev) {
 				initializePerformance(firebaseApp);
 			}
@@ -42,5 +71,8 @@ export function initFirebase() {
 			connectFunctionsEmulator(getFunctions(), '127.0.0.1', 5001);
 		}
 	}
-}
 
+	function throwMissingKeyError(key) {
+		throw new Error(`${key} at .env file is not defined`);
+	}
+}

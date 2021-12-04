@@ -1,0 +1,5 @@
+export { default as codeInitFirebase } from './initFirebase'
+export { default as codeDocument01 } from './document01'
+export { default as codeDocument02 } from './document02'
+export { default as codeDocument03 } from './document03'
+export { default as codeDocument04 } from './document04'

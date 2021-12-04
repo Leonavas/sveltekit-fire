@@ -42,6 +42,15 @@ const config = {
 			},
 			maxWidth: {
 				'8-xl': '90rem'
+			},
+			typography: {
+				DEFAULT: {
+				  css: {
+					code: {
+					  color: colors.amber[600]
+					},
+				  },
+				},
 			}
 		}
 	},

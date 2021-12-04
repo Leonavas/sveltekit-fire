@@ -1,13 +1,16 @@
 <script>
+	import { goto } from '$app/navigation';
+
 	import { getAuth, signOut } from '@firebase/auth';
+
+	import { codeInitFirebase } from '$lib/demo/sample-code';
 
 	import { User, Doc, CollectionRealtime } from 'sveltekit-fire';
 	//import { userStore } from 'sveltekit-fire';
 	import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 	import Button from '$lib/demo/Button.svelte';
 	import CodeBlock from '$lib/demo/CodeBlock.svelte';
-
-	//let user = userStore();
+	import Table from '$lib/demo/layout/Table.svelte';
 
 	function googleLogin(event) {
 		const googleProvider = new GoogleAuthProvider();
@@ -20,15 +23,52 @@
 				console.error(err);
 			});
 	}
+
+	const configs = [
+		{ key: 'VITE_PUBLIC_FIREBASE_API_KEY', description: 'firebaseConfig.apiKey' },
+		{ key: 'VITE_PUBLIC_FIREBASE_AUTH_DOMAIN', description: 'firebaseConfig.authDomain' },
+		{ key: 'VITE_PUBLIC_FIREBASE_PROJECT_ID', description: 'firebaseConfig.projectId' },
+		{
+			key: 'VITE_PUBLIC_FIREBASE_STORAGE_BUCKET',
+			description: 'firebaseConfig.storageBucket'
+		},
+		{
+			key: 'VITE_PUBLIC_FIREBASE_MESSAGING_SENDER_ID',
+			description: 'firebaseConfig.messagingSenderId'
+		},
+		{ key: 'VITE_PUBLIC_FIREBASE_APP_ID', description: 'firebaseConfig.appId' },
+		{
+			key: 'VITE_PUBLIC_FIREBASE_DATABASE_URL',
+			description: 'firebaseConfig.databaseURL <span class="italic">optional</span>'
+		},
+		{
+			key: 'VITE_PUBLIC_FIREBASE_MEASUREMENT_ID',
+			description: 'firebaseConfig.measurementId <span class="italic">optional</span>'
+		},
+		{
+			key: 'VITE_PUBLIC_FIREBASE_USE_ANALYTICS',
+			description:
+				'whether to use or not analytics. <br /><span class="font-bold">default:</span> true'
+		},
+		{
+			key: 'VITE_PUBLIC_FIREBASE_USE_PERFORMANCE',
+			description:
+				'whether to use or not performance. <br /><span class="font-bold">default:</span> true'
+		},
+		{
+			key: 'VITE_PUBLIC_FIREBASE_USER_PERSISTENCE',
+			description: 'local | session<br /><span class="font-bold">default:</span> local'
+		}
+	];
 </script>
 
 <h1>Installation</h1>
 
 <p>
 	Integrate
-	<a class="!text-svelte" href="https://kit.svelte.dev/">Svelte Kit</a>
+	<a class="!text-svelte" href="https://kit.svelte.dev/" target="_blank">Svelte Kit</a>
 	projects with
-	<a class="!text-firebase" href="https://firebase.google.com/">Firebase</a>
+	<a class="!text-firebase" href="https://firebase.google.com/" target="_blank">Firebase</a>
 	effortlessly!
 </p>
 <hr />
@@ -44,7 +84,7 @@
 	Now you'll need to create a new app inside a Firebase project. Make sure to choose the option
 	<i>web</i>
 </p>
-<h2>Initializing Firebase</h2>
+<h2 id="dotenv">Firebase Configuration</h2>
 <p>
 	Sveltekit Fire uses .env files to store firebase configuration data in order to provide a cleaner
 	code and the ability to lazily initialize Firebase from multiple components.
@@ -67,64 +107,22 @@ VITE_PUBLIC_FIREBASE_MEASUREMENT_ID="YOUR_MEASUREMENT_ID
 VITE_PUBLIC_FIREBASE_USE_ANALYTICS=true
 VITE_PUBLIC_FIREBASE_USE_PERFORMANCE=true
 VITE_PUBLIC_FIREBASE_USER_PERSISTENCE="local"`} />
-<table class="w-full text-left border-collapse">
-	<thead>
-		<tr>
-			<th class="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
-				<div class="pb-2 pr-2 border-b border-gray-200">Class</div>
-			</th>
-			<th class="z-20 sticky top-0 text-sm font-semibold text-gray-600 bg-white p-0">
-				<div class="pb-2 pl-2 border-b border-gray-200">Properties</div>
-			</th>
-		</tr>
-	</thead>
-	<tbody class="align-baseline">
-		<tr>
-			<td  class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap">
-				resize-none
-			</td>
-			<td  class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre">
-				resize: none;
-			</td>
-		</tr>
-		<tr>
-			<td
-				class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t
-				border-gray-200">
-				resize-y
-			</td>
-			<td
-				class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t
-				border-gray-200">
-				resize: vertical;
-			</td>
-		</tr>
-		<tr>
-			<td
-				class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t
-				border-gray-200">
-				resize-x
-			</td>
-			<td
-				class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t
-				border-gray-200">
-				resize: horizontal;
-			</td>
-		</tr>
-		<tr>
-			<td
-				class="py-2 pr-2 font-mono text-xs text-violet-600 whitespace-nowrap border-t
-				border-gray-200">
-				resize
-			</td>
-			<td
-				class="py-2 pl-2 font-mono text-xs text-light-blue-600 whitespace-pre border-t
-				border-gray-200">
-				resize: both;
-			</td>
-		</tr>
-	</tbody>
-</table>
+
+<Table keyDescription="Config" values={configs} />
+<Button
+	on:click={() => {
+		goto('/env-generator');
+	}}>
+	Generate your .env file
+</Button>
+<hr />
+<h1>Initializing Firebase</h1>
+<p>Now you can initialize Firebase like this:</p>
+<CodeBlock lang="svelte" code={codeInitFirebase} />
+<p>
+	But dont worry, if you don't initialize Firebase, it will automatically be initialized only once
+	whenever a Sveltekit Fire component is used
+</p>
 <hr />
 <h1>Starter Project</h1>
 <p>Start faster with the starter project</p>
