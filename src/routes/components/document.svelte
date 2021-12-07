@@ -3,7 +3,8 @@
 		codeDocument01,
 		codeDocument02,
 		codeDocument03,
-		codeDocument04
+		codeDocument04,
+		codeDocument05
 	} from '$lib/demo/sample-code';
 	import CodeBlock from '$lib/demo/CodeBlock.svelte';
 	import Table from '$lib/demo/layout/Table.svelte';
@@ -33,6 +34,17 @@
 		{ key: 'default', description: 'Default slot rendered when document data is loaded' },
 		{ key: 'before', description: 'Rendered before the document' },
 		{ key: 'after', description: 'Rendered after the document' }
+	];
+
+	const documentEvents = [
+		{
+			key: 'on:data',
+			description: "Dispatched when the document has loaded containing it's data"
+		},
+		{
+			key: 'on:ref',
+			description: 'Dispatched when the document reference is created, usefull for updates'
+		}
 	];
 </script>
 
@@ -70,6 +82,8 @@
 <Table values={documentProps} keyDescription="Props" valueDescription="Description" />
 <h2 class="italic">Doc slots</h2>
 <Table values={documentSlots} keyDescription="Slots" valueDescription="Description" />
+<h2 class="italic">Doc events</h2>
+<Table values={documentEvents} keyDescription="Events" valueDescription="Description" />
 <p>
 	When you need to access document that are private to authenticated users, you can use it in inside
 	a
@@ -79,7 +93,18 @@
 	component.
 </p>
 <hr />
-<h1>Document with reference</h1>
-<hr />
 <h1>With Realtime Updates</h1>
-<p>If you need realtime updates use</p>
+<p>
+	If you need to use Firestore realtime updates and have your page react to updates on a document
+	use
+	<code>DocRealtime</code>
+	instead of
+	<code>Doc</code>
+</p>
+<p>
+	It's powered by
+	<a href="https://firebase.google.com/docs/firestore/query-data/listen" target="_blank">
+		Firestore's Realtime Updates
+	</a>
+</p>
+<CodeBlock code={codeDocument05} lang="svelte" />

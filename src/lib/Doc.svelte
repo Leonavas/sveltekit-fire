@@ -11,13 +11,18 @@
 	import { doc, getDoc, getFirestore } from 'firebase/firestore/lite';
 	import { getApps } from 'firebase/app';
 	import { initFirebase } from './firebase';
+	import { createEventDispatcher, onMount } from 'svelte';
 	import promiseTimeout from './utils';
 
 	if (getApps().length === 0) {
 		initFirebase();
 	}
 
+	const dispatch = createEventDispatcher();
+
 	const ref = typeof path === 'string' ? doc(getFirestore(), path) : path;
+
+	onMount(() => dispatch('ref', { ref: ref }));
 
 	let fetchDoc = promiseTimeout(
 		maxWait,
@@ -34,6 +39,7 @@
 		.then((snap) => {
 			if (!!snap.data()) {
 				data = snap.data();
+				dispatch('data', { data: snap.data() });
 				if (log) {
 					console.groupCollapsed(`Doc ${snap.id}`);
 					console.log(`Path: ${ref.path}`);
@@ -53,7 +59,6 @@
 			error = `Error getting document: ${err}`;
 			console.error(err);
 		});
-
 </script>
 
 <slot name="before" />

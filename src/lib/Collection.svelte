@@ -16,12 +16,17 @@
 	import { getApps } from 'firebase/app';
 	import { initFirebase } from './firebase';
 	import promiseTimeout from './utils';
+	import { createEventDispatcher, onMount } from 'svelte';
 
 	if (getApps().length === 0) {
 		initFirebase();
 	}
 
+	const dispatch = createEventDispatcher();
+
 	const ref = typeof path === 'string' ? collection(getFirestore(), path) : path;
+
+	onMount(() => dispatch('ref', { ref: ref }));
 
 	let fetchCollection = promiseTimeout(
 		maxWait,
@@ -41,6 +46,7 @@
 					data.push({ _firestoreId: doc.id, ...doc.data() });
 				});
 
+				dispatch('data', { data: data });
 				first = data[0];
 				last = data[snap.docs.length - 1];
 

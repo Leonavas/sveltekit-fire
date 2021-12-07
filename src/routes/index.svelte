@@ -103,7 +103,7 @@ VITE_PUBLIC_FIREBASE_PROJECT_ID="YOUR_PROJECT_ID"
 VITE_PUBLIC_FIREBASE_STORAGE_BUCKET="YOUR_STORAGE_BUCKET"
 VITE_PUBLIC_FIREBASE_MESSAGING_SENDER_ID="YOUR_MESSAGING_SENDER_ID"
 VITE_PUBLIC_FIREBASE_APP_ID="YOUR_APP_ID"
-VITE_PUBLIC_FIREBASE_MEASUREMENT_ID="YOUR_MEASUREMENT_ID
+VITE_PUBLIC_FIREBASE_MEASUREMENT_ID="YOUR_MEASUREMENT_ID"
 VITE_PUBLIC_FIREBASE_USE_ANALYTICS=true
 VITE_PUBLIC_FIREBASE_USE_PERFORMANCE=true
 VITE_PUBLIC_FIREBASE_USER_PERSISTENCE="local"`} />
@@ -139,7 +139,7 @@ VITE_PUBLIC_FIREBASE_USER_PERSISTENCE="local"`} />
 <h1>Disclaimer</h1>
 <p>
 	This lib was initially intendend to be a PR to the awesome
-	<a href="https://github.com/codediodeio/sveltefire">codediodeio/sveltefire</a>
+	<a href="https://github.com/codediodeio/sveltefire">codediodeio/sveltefire</a> written by Jeff Delaney.
 
 	<br />
 	But as the work progressed, in order to maximize the benefits of firebase js sdk 9.0+ and
@@ -148,7 +148,7 @@ VITE_PUBLIC_FIREBASE_USER_PERSISTENCE="local"`} />
 	Some of the code was heavily inspired by the sveltefire project.
 </p>
 <!-- </div> -->
-<!-- <Doc log={true} let:data={post} let:error={error}>
+<!-- <Doc log let:data={post} let:error={error}>
 	{post.title}
 	<div slot="loading">Loading...</div>
 	<div slot="fallback">{error}</div>
@@ -172,7 +172,7 @@ VITE_PUBLIC_FIREBASE_USER_PERSISTENCE="local"`} />
 <br />
 <br />
 <br /> -->
-<!-- <CollectionRealtime log={true} path={'posts'} let:data let:last>
+<!-- <CollectionRealtime log path={'posts'} let:data let:last>
 
 	{#each data as post}{post.title}{/each}
 	<br />

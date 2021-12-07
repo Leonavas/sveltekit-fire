@@ -3,7 +3,8 @@
 	import CodeBlock from '$lib/demo/CodeBlock.svelte';
 </script>
 
-<Collection log={true} path={'posts'} let:data let:last let:error>
+TODO
+<!-- <Collection log path={'posts'} let:data let:last let:error>
 
 	{#each data as post}{post.title}{/each}
 	<br />
@@ -11,11 +12,11 @@
 	<div slot="loading">Carregando...</div>
 	<div slot="fallback">{error}</div>
 
-</Collection>
+</Collection> -->
 
 <CodeBlock
 	lang="svelte"
-	code={`<Collection maxWait="10" log={true} path={'posts'} let:data let:last let:error>
+	code={`<Collection maxWait="10" log path={'posts'} let:data let:last let:error>
 
 	{#each data as post}{post.title}{/each}
 	<br />

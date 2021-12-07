@@ -47,17 +47,22 @@ export function docStore(path, opts: docOptions) {
 			ref,
 			(snapshot) => {
 				const data = snapshot.data() || (_firstValue && startWith) || null;
+				if (data === null) {
+					next(null, `No such document '${ref.path}'`);
+				} else {
+					// Optional logging
+					if (log) {
+						console.groupCollapsed(`Doc ${snapshot.id}`);
+						console.log(`Path: ${ref.path}`);
+						console.log('Snapshot:', snapshot.data());
+						console.groupEnd();
+					}
 
-				// Optional logging
-				if (log) {
-					console.groupCollapsed(`Doc ${snapshot.id}`);
-					console.log(`Path: ${ref.path}`);
-					console.log('Snapshot:', snapshot.data());
-					console.groupEnd();
+					// Emit next value
+					next(data, null);
+
+					_teardown();
 				}
-
-				// Emit next value
-				next(data, null);
 			},
 
 			// Handle firebase thrown errors
