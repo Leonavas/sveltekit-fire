@@ -91,14 +91,8 @@ const firebaseConfig = {
 {/if}
 
 {#if !!generatedEnvFile}
-	<p class="!-mb-5">Here is your <code>.env</code> file:</p>
+	<p class="!-mb-2">Here is your <code>.env</code> file:</p>
 	<div class="relative group">
 		<CodeBlock lang="bash" code={generatedEnvFile} />
-		<!-- <ClipboardCopy
-			class="absolute top-2 right-2 z-50 cursor-pointer text-gray-500 group-hover:text-gray-50"
-			textToCopy={generatedEnvFile} />
-		<pre>
-			<code>{generatedEnvFile}</code>
-		</pre> -->
 	</div>
 {/if}

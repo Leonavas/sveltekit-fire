@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { getFirestore, doc, collection, onSnapshot } from 'firebase/firestore';
+import { getFirestore, doc, collection, onSnapshot, query } from 'firebase/firestore';
 import { initFirebase } from 'sveltekit-fire';
 interface docOptions {
 	startWith: any;
@@ -37,10 +37,7 @@ export function docStore(path, opts: docOptions) {
 		// Timout for fallback slot
 		_waitForIt =
 			maxWait &&
-			setTimeout(
-				() => _loading && next(null, new Error(`Timeout at ${maxWait}ms. Using fallback slot.`)),
-				maxWait
-			);
+			setTimeout(() => _loading && next(null, new Error(`Timeout at ${maxWait}ms.`)), maxWait);
 
 		// Realtime firebase subscription
 		_teardown = onSnapshot(
@@ -102,8 +99,10 @@ export function collectionStore(path, queryFn, opts: docOptions) {
 		...opts
 	};
 
-	const ref = typeof path === 'string' ? collection(getFirestore(), path) : path;
-	const query = queryFn && queryFn(ref);
+	let ref = typeof path === 'string' ? collection(getFirestore(), path) : path;
+	if (!!queryFn) {
+		ref = query(ref, ...queryFn);
+	}
 
 	let _loading = typeof startWith !== undefined;
 	let _error = null;
@@ -127,13 +126,10 @@ export function collectionStore(path, queryFn, opts: docOptions) {
 	const start = () => {
 		_waitForIt =
 			maxWait &&
-			setTimeout(
-				() => _loading && next(null, new Error(`Timeout at ${maxWait}ms. Using fallback slot.`)),
-				maxWait
-			);
+			setTimeout(() => _loading && next(null, new Error(`Timeout at ${maxWait}ms.`)), maxWait);
 
 		_teardown = onSnapshot(
-			query || ref,
+			ref,
 			(snapshot) => {
 				// Will always return an array
 				const data = snapshot.docs.map((docSnap) => ({

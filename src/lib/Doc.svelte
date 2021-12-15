@@ -9,14 +9,11 @@
 	let data = {};
 
 	import { doc, getDoc, getFirestore } from 'firebase/firestore/lite';
-	import { getApps } from 'firebase/app';
 	import { initFirebase } from './firebase';
 	import { createEventDispatcher, onMount } from 'svelte';
 	import promiseTimeout from './utils';
 
-	if (getApps().length === 0) {
-		initFirebase();
-	}
+	initFirebase();
 
 	const dispatch = createEventDispatcher();
 

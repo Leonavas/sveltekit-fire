@@ -6,6 +6,7 @@
     export let maxWait = 10000;
     import { onMount, createEventDispatcher } from "svelte";
     import { collectionStore } from "./firestore";
+
     const opts = {
       startWith,
       log,

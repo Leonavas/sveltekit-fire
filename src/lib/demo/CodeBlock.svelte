@@ -4,7 +4,7 @@
 	import 'prism-svelte';
 	import { fade } from 'svelte/transition';
 	
-	export let lang = 'js';
+	export let lang = 'svelte';
 
 	onMount(() => {
 		Prism.highlightAll();

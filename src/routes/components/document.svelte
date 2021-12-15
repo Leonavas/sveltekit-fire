@@ -13,7 +13,7 @@
 		{ key: 'path', description: 'String | Document Reference' },
 		{
 			key: 'log',
-			description: 'Boolean <span class="font-bold">Default:</span> false<br />Display console logs'
+			description: 'Display console logs <br /><span class="font-bold">Default:</span> false<br />'
 		},
 		{
 			key: 'maxWait',
@@ -64,18 +64,18 @@
 	to provide a light and fast access to Firestore documents.
 </p>
 <h2>Fetch a document</h2>
-<CodeBlock code={codeDocument01} lang="svelte" />
+<CodeBlock code={codeDocument01} />
 <p>
 	If Firebase isn't initialized by the time you use Doc, it will automatically be initialized based
 	on your
 	<a href="/#dotenv">.env config</a>
 </p>
 <h2>Enable console logs</h2>
-<CodeBlock code={codeDocument02} lang="svelte" />
+<CodeBlock code={codeDocument02} />
 <h2>Loading State</h2>
-<CodeBlock code={codeDocument03} lang="svelte" />
+<CodeBlock code={codeDocument03} />
 <h2>Error Handling</h2>
-<CodeBlock code={codeDocument04} lang="svelte" />
+<CodeBlock code={codeDocument04} />
 <hr />
 <h1>Parameters</h1>
 <h2 class="italic">Doc props</h2>
@@ -107,4 +107,4 @@
 		Firestore's Realtime Updates
 	</a>
 </p>
-<CodeBlock code={codeDocument05} lang="svelte" />
+<CodeBlock code={codeDocument05} />

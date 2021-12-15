@@ -9,6 +9,7 @@
 		{ label: 'Document', path: '/components/document' },
 		{ label: 'Collection', path: '/components/collection' },
 		{ label: 'User', path: '/components/user' },
+		{ label: 'Upload', path: '/components/upload' },
 		{ divider: true, label: 'Utils' },
 		{ label: 'userStore', path: '/utils/user-store' },
 		// { divider: true, label: 'Utils' },

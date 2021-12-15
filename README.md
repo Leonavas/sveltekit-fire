@@ -24,6 +24,21 @@ npm install -D firebase
 
 Now you'll need to create a new app inside a Firebase project. Make sure to choose the option  _web_
 
+## Svelte Configuration
+if you instaleld firebase js sdk v9+, by the time os this documentation is written, you will need to add the following code to yours svelte.config.js file:
+
+```js
+kit : {
+...
+	vite: {
+		ssr: {
+			external: ['firebase']
+		}
+	}
+}
+...
+
+```
 ## Firebase Configuration
 
 Sveltekit Fire uses .env files to store firebase configuration data in order to provide a cleaner code and the ability to lazily initialize Firebase from multiple components.
@@ -57,7 +72,7 @@ Now you can initialize Firebase like this:
 </script>
 ```
 
-But dont worry, if you don't initialize Firebase, it will automatically be initialized only once whenever a Sveltekit Fire component is used
+But dont worry, if you don't initialize Firebase, it will automatically be initialized only once whenever a Sveltekit Fire component is used.
 
 # Server Side Rendering
 
@@ -68,3 +83,6 @@ Although Sveltekit Fire is compatible with ssr, it's not yet fully supported. Fo
 This lib was initially intendend to be a PR to the awesome [codediodeio/sveltefire](https://github.com/codediodeio/sveltefire) written by Jeff Delaney.
 But as the work progressed, in order to maximize the benefits of firebase js sdk 9.0+ and sveltekit the project started to grow in a very different way so I decided to create a new lib.  
 Some of the code was heavily inspired by the sveltefire project.
+
+# Complete Documentation
+The full [documentation is available here](https://sveltekitfire.web.app/)

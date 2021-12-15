@@ -10,7 +10,6 @@ import {
 	inMemoryPersistence,
 	connectAuthEmulator
 } from 'firebase/auth';
-import { getApps } from 'firebase/app';
 import { initFirebase } from './firebase';
 
 export function userStore() {
@@ -33,9 +32,7 @@ export function userStore() {
 	}
 
 	const store = writable(cached, () => {
-		if (getApps().length === 0) {
-			initFirebase();
-		}
+		initFirebase();
 
 		if (browser && !!authStatePersistence) {
 			switch (authStatePersistence) {

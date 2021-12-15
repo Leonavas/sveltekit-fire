@@ -11,45 +11,12 @@
 		</a>
 	</div>
 	<div
-		class="flex-auto border-b border-gray-200 h-18 flex items-center justify-between 
+		class="flex-auto border-b border-gray-200 bg-white h-18 flex items-center justify-between 
 		 lg:px-0 bg-warmGray-50">
 		<div>
 			
 			<!-- <h2 class="font-bold text-2xl text-gray-500">{$page.path.replace("-", " ").replace("/", "")}</h2> -->
 		</div>
-		<!-- <button
-			type="button"
-			class="group leading-6 font-medium flex items-center space-x-3 sm:space-x-4
-			hover:text-gray-600 transition-colors duration-200 w-full py-2">
-			<svg
-				width="24"
-				height="24"
-				fill="none"
-				class="text-gray-400 group-hover:text-gray-500 transition-colors duration-200">
-				<path
-					d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-					stroke="currentColor"
-					stroke-width="2"
-					stroke-linecap="round"
-					stroke-linejoin="round" />
-			</svg>
-			<span>
-				Quick search
-				<span class="hidden sm:inline">for anything</span>
-			</span>
-			<span
-				class="hidden sm:block text-gray-400 text-sm leading-5 py-0.5 px-1.5 border border-gray-300
-				rounded-md"
-				style="opacity: 1;">
-				<span class="sr-only">Press</span>
-				<kbd class="font-sans">
-					<abbr title="Control" class="no-underline">Ctrl</abbr>
-				</kbd>
-				<span class="sr-only">and</span>
-				<kbd class="font-sans">K</kbd>
-				<span class="sr-only">to search</span>
-			</span>
-		</button> -->
 		<div class="lg:w-64 pl-8 flex-shrink-0 flex items-center justify-end space-x-6">
 			<a
 				href="https://github.com/Leonavas/sveltekit-fire"

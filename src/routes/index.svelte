@@ -1,28 +1,26 @@
 <script>
 	import { goto } from '$app/navigation';
 
-	import { getAuth, signOut } from '@firebase/auth';
+	// import { getAuth } from '@firebase/auth';
 
 	import { codeInitFirebase } from '$lib/demo/sample-code';
 
-	import { User, Doc, CollectionRealtime } from 'sveltekit-fire';
-	//import { userStore } from 'sveltekit-fire';
 	import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 	import Button from '$lib/demo/Button.svelte';
 	import CodeBlock from '$lib/demo/CodeBlock.svelte';
 	import Table from '$lib/demo/layout/Table.svelte';
 
-	function googleLogin(event) {
-		const googleProvider = new GoogleAuthProvider();
-		googleProvider.setDefaultLanguage('pt_br');
-		signInWithPopup(getAuth(), googleProvider)
-			.then((result) => {
-				var user = result.user;
-			})
-			.catch((err) => {
-				console.error(err);
-			});
-	}
+	// function googleLogin(event) {
+	// 	const googleProvider = new GoogleAuthProvider();
+	// 	googleProvider.setDefaultLanguage('pt_br');
+	// 	signInWithPopup(getAuth(), googleProvider)
+	// 		.then((result) => {
+	// 			var user = result.user;
+	// 		})
+	// 		.catch((err) => {
+	// 			console.error(err);
+	// 		});
+	// }
 
 	const configs = [
 		{ key: 'VITE_PUBLIC_FIREBASE_API_KEY', description: 'firebaseConfig.apiKey' },
@@ -62,7 +60,7 @@
 	];
 </script>
 
-<h1>Installation</h1>
+<h1>Getting Started</h1>
 
 <p>
 	Integrate
@@ -72,7 +70,7 @@
 	effortlessly!
 </p>
 <hr />
-<h1>Getting Started</h1>
+<h1>Installation</h1>
 <p>To install Sveltekit Fire run on your terminal</p>
 <CodeBlock lang="bash" code={`npm install -D sveltekit-fire`} />
 <p>
@@ -80,6 +78,19 @@
 	firebase js sdk v9+
 </p>
 <CodeBlock lang="bash" code={`npm install -D firebase`} />
+
+<p>if you instaleld firebase js sdk v9+, by the time os this documentation is written, you will need to add the following code to yours svelte.config.js file:<p>
+
+<CodeBlock lang="javascript" code={`kit : {
+...
+	vite: {
+		ssr: {
+			external: ['firebase']
+		}
+	}
+}
+...`} />
+
 <p>
 	Now you'll need to create a new app inside a Firebase project. Make sure to choose the option
 	<i>web</i>
@@ -89,7 +100,7 @@
 	Sveltekit Fire uses .env files to store firebase configuration data in order to provide a cleaner
 	code and the ability to lazily initialize Firebase from multiple components.
 </p>
-<p class="!-mb-5">
+<p class="!-mb-2">
 	A
 	<code>.env</code>
 	file will look like this
@@ -124,12 +135,12 @@ VITE_PUBLIC_FIREBASE_USER_PERSISTENCE="local"`} />
 	whenever a Sveltekit Fire component is used
 </p>
 <hr />
-<h1>Starter Project</h1>
+<!-- <h1>Starter Project</h1>
 <p>Start faster with the starter project</p>
 <pre>
 	<code>@TODO npx degit sveltekit-fire</code>
 </pre>
-<hr />
+<hr /> -->
 <h1>Server Side Rendering</h1>
 <p>
 	Although Sveltekit Fire is compatible with ssr, it's not yet fully supported. For instance,
@@ -147,62 +158,3 @@ VITE_PUBLIC_FIREBASE_USER_PERSISTENCE="local"`} />
 	<br />
 	Some of the code was heavily inspired by the sveltefire project.
 </p>
-<!-- </div> -->
-<!-- <Doc log let:data={post} let:error={error}>
-	{post.title}
-	<div slot="loading">Loading...</div>
-	<div slot="fallback">{error}</div>
-</Doc>
-<User let:user on:user>
-	{user.displayName}
-	<button class="text-[#ff3e00]"
-		on:click={() => {
-			signOut(getAuth());
-		}}>
-		Logout
-	</button>
-	<p class="text-svelte">Svelte</p>
-	<p class="text-firebase">Firebase</p>
-	<p class="text-brand-500">Sveltekit Fire</p>
-	<div slot="signed-out">
-		<button on:click={googleLogin}>Google Login</button>
-	</div>
-</User>
-<br />
-<br />
-<br />
-<br /> -->
-<!-- <CollectionRealtime log path={'posts'} let:data let:last>
-
-	{#each data as post}{post.title}{/each}
-	<br />
-	{last.title}
-	<div slot="loading">Carregando...</div>
-	
-</CollectionRealtime> -->
-<!-- <br />
-<br />
-<br /> -->
-<!-- <Doc
-	path={'posts/how-can-i-get-involved'}
-	log
-	traceId={'postRead'}
-	let:data={post}
-	let:ref={myRef}
-	on:data
-	on:ref>
-	{post.title}
-	<span slot="loading">Loading...</span>
-	<span slot="fallback">Error...</span>
-</Doc> -->
-<!-- {#if $user}
-	{$user.displayName}
-	<button
-		on:click={() => {
-			signOut(getAuth());
-		}}>
-		Logout
-	</button>
-{:else}
-	<button on:click={googleLogin}>Google Login</button>
-{/if} -->

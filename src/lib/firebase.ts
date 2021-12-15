@@ -8,7 +8,6 @@ import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
 
 export function initFirebase() {
-	let firebaseApp = null;
 
 	if (getApps().length === 0) {
 		const env = import.meta.env;
@@ -52,7 +51,7 @@ export function initFirebase() {
 			//measurementId: env.VITE_PUBLIC_FIREBASE_MEASUREMENT_ID || null
 		};
 
-		firebaseApp = initializeApp(firebaseConfig);
+		let firebaseApp = initializeApp(firebaseConfig);
 		if (browser) {
 			const useAnalytics = !!env.VITE_PUBLIC_FIREBASE_USE_ANALYTICS;
 			const usePerformance = !!env.VITE_PUBLIC_FIREBASE_USE_PERFORMANCE;
