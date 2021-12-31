@@ -1,6 +1,6 @@
 {
 	"name": "sveltekit-fire",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"dev:em": "cross-env VITE_USE_FIREBASE_EMULATOR=true svelte-kit dev",
@@ -26,7 +26,7 @@
 		"eslint": "^7.32.0",
 		"eslint-config-prettier": "^8.3.0",
 		"eslint-plugin-svelte3": "^3.2.1",
-		"firebase": "^9.5.0",
+		"firebase": "^9.6.1",
 		"i": "^0.3.7",
 		"npm": "^8.1.4",
 		"postcss": "^8.3.9",
@@ -55,7 +55,7 @@
 		"firebase",
 		"firestore"
 	],
-	"homepage": "https://sveltekitfire.web.app/",
+	"homepage": "https://sveltekitfire.web.app",
 	"author": "Rodrigo Leonavas",
 	"license": "ISC"
 }

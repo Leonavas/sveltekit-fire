@@ -1,5 +1,5 @@
 export default `<script>
-	import ColRealtime from '$lib/ColRealtime.svelte';
+	import ColRealtime from 'sveltekit-fire';
 	import { orderBy, limit } from 'firebase/firestore';
 
 	let query = [orderBy('title', 'asc'), limit(10)];

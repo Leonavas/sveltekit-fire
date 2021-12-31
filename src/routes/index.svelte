@@ -79,7 +79,7 @@
 </p>
 <CodeBlock lang="bash" code={`npm install -D firebase`} />
 
-<p>if you instaleld firebase js sdk v9+, by the time os this documentation is written, you will need to add the following code to yours svelte.config.js file:<p>
+<p>if you instaleld firebase js sdk v9+, by the time this documentation is written, you will need to add the following code to yours svelte.config.js file:<p>
 
 <CodeBlock lang="javascript" code={`kit : {
 ...

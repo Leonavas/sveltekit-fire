@@ -8,7 +8,6 @@ import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
 
 export function initFirebase() {
-
 	if (getApps().length === 0) {
 		const env = import.meta.env;
 
@@ -51,7 +50,7 @@ export function initFirebase() {
 			//measurementId: env.VITE_PUBLIC_FIREBASE_MEASUREMENT_ID || null
 		};
 
-		let firebaseApp = initializeApp(firebaseConfig);
+		const firebaseApp = initializeApp(firebaseConfig);
 		if (browser) {
 			const useAnalytics = !!env.VITE_PUBLIC_FIREBASE_USE_ANALYTICS;
 			const usePerformance = !!env.VITE_PUBLIC_FIREBASE_USE_PERFORMANCE;
@@ -64,10 +63,15 @@ export function initFirebase() {
 			}
 		}
 
-		const useEmulator = !!import.meta.env.VITE_USE_FIREBASE_EMULATOR;
+		const useEmulator = !!import.meta.env.VITE_PUBLIC_FIREBASE_USE_EMULATOR;
 		if (useEmulator && dev) {
-			connectFirestoreEmulator(getFirestore(), '127.0.0.1', 8080);
-			connectFunctionsEmulator(getFunctions(), '127.0.0.1', 5001);
+			try {
+				connectFirestoreEmulator(getFirestore(firebaseApp), '127.0.0.1', 8080);
+				connectFunctionsEmulator(getFunctions(firebaseApp), 'localhost', 5001);
+			} catch (err) {
+				console.error('Error connecting to firebase emulator');
+				console.error(err);
+			}
 		}
 	}
 

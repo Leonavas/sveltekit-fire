@@ -25,7 +25,7 @@ npm install -D firebase
 Now you'll need to create a new app inside a Firebase project. Make sure to choose the option  _web_
 
 ## Svelte Configuration
-if you instaleld firebase js sdk v9+, by the time os this documentation is written, you will need to add the following code to yours svelte.config.js file:
+if you instaleld firebase js sdk v9+, by the time this documentation is written, you will need to add the following code to yours svelte.config.js file:
 
 ```js
 kit : {
