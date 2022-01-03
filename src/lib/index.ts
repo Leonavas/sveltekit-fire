@@ -1,4 +1,4 @@
-import { initFirebase } from './firebase';
+import { initFirebase, firebaseApp } from './firebase';
 import { userStore } from './auth';
 import Doc from './Doc.svelte';
 import DocRealtime from './DocRealtime.svelte';
@@ -9,6 +9,7 @@ import Upload from './Upload.svelte';
 
 export {
     initFirebase,
+    firebaseApp,
     userStore,
     Doc,
     DocRealtime,

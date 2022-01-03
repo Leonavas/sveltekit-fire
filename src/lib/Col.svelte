@@ -77,10 +77,7 @@
 				loading = false;
 			})
 			.catch((err) => {
-				errored = true;
-				loading = false;
-				error = `Error getting collection: ${err}`;
-				console.error(err);
+				throw err;
 			});
 	} catch (err) {
 		console.error(err);

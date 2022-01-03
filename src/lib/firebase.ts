@@ -7,6 +7,10 @@ import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
 
+import { initializeAuth } from 'firebase/auth';
+
+export let firebaseApp;
+
 export function initFirebase() {
 	if (getApps().length === 0) {
 		const env = import.meta.env;
@@ -50,7 +54,8 @@ export function initFirebase() {
 			//measurementId: env.VITE_PUBLIC_FIREBASE_MEASUREMENT_ID || null
 		};
 
-		const firebaseApp = initializeApp(firebaseConfig);
+		firebaseApp = initializeApp(firebaseConfig);
+
 		if (browser) {
 			const useAnalytics = !!env.VITE_PUBLIC_FIREBASE_USE_ANALYTICS;
 			const usePerformance = !!env.VITE_PUBLIC_FIREBASE_USE_PERFORMANCE;
@@ -63,7 +68,7 @@ export function initFirebase() {
 			}
 		}
 
-		const useEmulator = !!import.meta.env.VITE_PUBLIC_FIREBASE_USE_EMULATOR;
+		const useEmulator = import.meta.env.VITE_PUBLIC_FIREBASE_USE_EMULATOR === 'true';
 		if (useEmulator && dev) {
 			try {
 				connectFirestoreEmulator(getFirestore(firebaseApp), '127.0.0.1', 8080);
@@ -74,6 +79,8 @@ export function initFirebase() {
 			}
 		}
 	}
+
+	return firebaseApp;
 
 	function throwMissingKeyError(key) {
 		throw new Error(`${key} at .env file is not defined`);
