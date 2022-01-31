@@ -1,6 +1,6 @@
 {
 	"name": "sveltekit-fire",
-	"version": "0.0.9",
+	"version": "0.0.10",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"dev:em": "cross-env VITE_USE_FIREBASE_EMULATOR=true svelte-kit dev",

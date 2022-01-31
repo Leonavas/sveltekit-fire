@@ -4,6 +4,7 @@ import { initializeApp, getApps } from 'firebase/app';
 import { initializeAnalytics } from 'firebase/analytics';
 import { initializePerformance } from 'firebase/performance';
 import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
+import { getFirestore as getFirestoreLite, connectFirestoreEmulator as connectFirestoreLiteEmulator } from 'firebase/firestore/lite';
 
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
 
@@ -65,11 +66,12 @@ export function initFirebase() {
 				initializePerformance(firebaseApp);
 			}
 		}
-
-		const useEmulator = import.meta.env.VITE_PUBLIC_FIREBASE_USE_EMULATOR === 'true';
+		
+		const useEmulator = env.VITE_PUBLIC_FIREBASE_USE_EMULATOR === 'true';
 		if (useEmulator && dev) {
 			try {
 				connectFirestoreEmulator(getFirestore(firebaseApp), '127.0.0.1', 8080);
+				connectFirestoreLiteEmulator(getFirestoreLite(firebaseApp), '127.0.0.1', 8080);
 				connectFunctionsEmulator(getFunctions(firebaseApp), 'localhost', 5001);
 			} catch (err) {
 				console.error('Error connecting to firebase emulator');
