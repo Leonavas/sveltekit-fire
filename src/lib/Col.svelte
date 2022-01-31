@@ -53,7 +53,7 @@
 				if (!snap.empty) {
 					data = []
 					snap.docs.forEach((doc) => {
-						data.push({ _firestoreId: doc.id, ...doc.data() });
+						data.push({ id: doc.id, ...doc.data() });
 					});
 
 					dispatch('data', { data: data });
@@ -67,7 +67,7 @@
 						}
 						console.log(
 							`Snapshot: `,
-							snap.docs.map((docSnap) => ({ ...docSnap.data(), _firestoreId: docSnap.id }))
+							snap.docs.map((docSnap) => ({ ...docSnap.data(), id: docSnap.id }))
 						);
 						console.groupEnd();
 					}
