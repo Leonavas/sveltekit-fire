@@ -7,8 +7,6 @@ import { getFirestore, connectFirestoreEmulator } from 'firebase/firestore';
 
 import { getFunctions, connectFunctionsEmulator } from 'firebase/functions';
 
-import { initializeAuth } from 'firebase/auth';
-
 export let firebaseApp;
 
 export function initFirebase() {
@@ -79,8 +77,6 @@ export function initFirebase() {
 			}
 		}
 	}
-
-	return firebaseApp;
 
 	function throwMissingKeyError(key) {
 		throw new Error(`${key} at .env file is not defined`);
