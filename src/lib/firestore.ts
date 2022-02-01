@@ -57,8 +57,6 @@ export function docStore(path, opts: docOptions) {
 
 					// Emit next value
 					next(data, null);
-
-					_teardown();
 				}
 			},
 
