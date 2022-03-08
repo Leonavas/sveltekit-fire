@@ -37,7 +37,7 @@
 			{:else}
 				<a
 					href={item.path}
-					class={`${$page.path === item.path ? 'text-brand-600 bg-brand-200/20' : 'text-gray-500'} text-md rounded-md px-4 py-1`}>
+					class={`${$page.url.pathname === item.path ? 'text-brand-600 bg-brand-200/20' : 'text-gray-500'} text-md rounded-md px-4 py-1`}>
 					{item.label}
 				</a>
 			{/if}

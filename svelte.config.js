@@ -15,7 +15,6 @@ const config = {
 	kit: {
 		adapter: adapter(),
 		// hydrate the <div id="svelte"> element in src/app.html
-		target: '#svelte',
 		package: {
 			files: (file) => !file.toLocaleLowerCase().includes('demo'),
 			exports: (file) => file === 'index.ts'
