@@ -6,6 +6,7 @@ import Col from './Col.svelte';
 import ColRealtime from './ColRealtime.svelte';
 import User from './User.svelte';
 import Upload from './Upload.svelte';
+import AuthHandler from './AuthHandler.svelte';
 
 export {
     initFirebase,
@@ -16,6 +17,7 @@ export {
     Col,
     ColRealtime,
     User,
-    Upload
+    Upload,
+    AuthHandler
 }
 
