@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { userStore } from 'sveltekit-fire';
+	import { userStore } from './auth';
 
 	const store = userStore();
 </script>

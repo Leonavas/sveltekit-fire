@@ -1,4 +1,5 @@
-export default `<script>
+export default `
+<script>
 	import { Col } from 'sveltekit-fire';
 </script>
 

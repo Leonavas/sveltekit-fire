@@ -1,6 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
-	import { userStore } from 'sveltekit-fire';
+	import { userStore } from './auth';
 	import { onMount } from 'svelte';
 
 	const dispatch = createEventDispatcher();

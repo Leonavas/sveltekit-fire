@@ -81,7 +81,8 @@
 
 <p>if you instaleld firebase js sdk v9+, by the time this documentation is written, you will need to add the following code to yours svelte.config.js file:<p>
 
-<CodeBlock lang="javascript" code={`kit : {
+<CodeBlock lang="javascript" code={`
+kit : {
 ...
 	vite: {
 		ssr: {
@@ -107,7 +108,8 @@
 </p>
 <CodeBlock
 	lang="bash"
-	code={`VITE_PUBLIC_FIREBASE_API_KEY="YOUR_API_KEY"
+	code={`
+VITE_PUBLIC_FIREBASE_API_KEY="YOUR_API_KEY"
 VITE_PUBLIC_FIREBASE_AUTH_DOMAIN="YOUR_AUTH_DOMAIN"
 VITE_PUBLIC_FIREBASE_DATABASE_URL="YOUR_DATABASE_URL"
 VITE_PUBLIC_FIREBASE_PROJECT_ID="YOUR_PROJECT_ID"

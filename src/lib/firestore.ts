@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import { getFirestore, doc, collection, onSnapshot, query } from 'firebase/firestore';
-import { initFirebase } from 'sveltekit-fire';
+import { initFirebase } from './firebase';
 interface docOptions {
 	startWith: any;
 	log: boolean;

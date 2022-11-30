@@ -1,4 +1,4 @@
-import { dev, browser } from '$app/env';
+import { dev, browser } from '$app/environment';
 import { initializeApp, getApps } from 'firebase/app';
 
 import { initializeAnalytics } from 'firebase/analytics';

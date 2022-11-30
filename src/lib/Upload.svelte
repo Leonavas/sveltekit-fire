@@ -3,7 +3,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { initFirebase } from './firebase';
 
-	export let path: string;
+	export let path;
 	export let accept = null;
 	export let contentType = null;
 	export let keepFileName = false;

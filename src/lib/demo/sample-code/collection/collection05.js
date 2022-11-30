@@ -1,4 +1,5 @@
-export default `<script>
+export default `
+<script>
 	import { Col } from 'sveltekit-fire';
 	import { orderBy, limit } from 'firebase/firestore/lite';
 	// remember to import from firestore/lite!

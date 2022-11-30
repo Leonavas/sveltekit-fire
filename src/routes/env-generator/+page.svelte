@@ -34,7 +34,8 @@ import CodeBlock from '$lib/demo/CodeBlock.svelte';
 				}
 			});
 
-			generatedEnvFile = `VITE_PUBLIC_FIREBASE_API_KEY=${parsedConfig.apiKey}
+			generatedEnvFile = `
+VITE_PUBLIC_FIREBASE_API_KEY=${parsedConfig.apiKey}
 VITE_PUBLIC_FIREBASE_AUTH_DOMAIN=${parsedConfig.authDomain}
 VITE_PUBLIC_FIREBASE_PROJECT_ID=${parsedConfig.projectId}
 VITE_PUBLIC_FIREBASE_STORAGE_BUCKET=${parsedConfig.storageBucket}

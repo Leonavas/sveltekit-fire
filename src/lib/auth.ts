@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import { dev, browser } from '$app/env';
+import { dev, browser } from '$app/environment';
 import {
 	getAuth,
 	onAuthStateChanged,
