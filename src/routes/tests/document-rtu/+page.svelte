@@ -6,5 +6,5 @@
 	<!-- the document loaded and it will automatically rerender if the document is changed -->
 	{post.title}
 	<div slot="loading">Loading</div>
-	<div slot="fallback">Encontered an error: {error}</div>
+	<div slot="fallback">Encountered an error: {error}</div>
 </DocRealtime>

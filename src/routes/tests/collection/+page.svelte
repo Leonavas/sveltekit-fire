@@ -12,5 +12,5 @@
 		<p>{post.title}</p>
 	{/each}
 	<div slot="loading">Loading</div>
-	<div slot="fallback">Encontered an error: {error}</div>
+	<div slot="fallback">Encountered an error: {error}</div>
 </Col>

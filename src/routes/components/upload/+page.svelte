@@ -42,7 +42,7 @@
 		{
 			key: 'hidden',
 			description:
-				'If true, the <code>&lt;input type="file"...</code> will have a hidden value. Usefull to create custom upload buttons. <br /><span class="font-bold">Default:</span> false'
+				'If true, the <code>&lt;input type="file"...</code> will have a hidden value. Useful to create custom upload buttons. <br /><span class="font-bold">Default:</span> false'
 		},
 		{
 			key: 'log',
@@ -91,7 +91,7 @@
 <CodeBlock code={codeUpload01} />
 <h2>Preserving file name</h2>
 <p>
-	If you dont want to overwrite the filename, use the
+	If you don't want to overwrite the filename, use the
 	<code>keepFileName</code>
 	flag and remove the filename from the
 	<code>path</code>

@@ -79,7 +79,7 @@
 </p>
 <CodeBlock lang="bash" code={`npm install -D firebase`} />
 
-<p>if you instaleld firebase js sdk v9+, by the time this documentation is written, you will need to add the following code to yours svelte.config.js file:<p>
+<p>if you installed firebase js sdk v9+, by the time this documentation is written, you will need to add the following code to yours svelte.config.js file:<p>
 
 <CodeBlock lang="javascript" code={`
 kit : {
@@ -133,7 +133,7 @@ VITE_PUBLIC_FIREBASE_USER_PERSISTENCE="local"`} />
 <p>Now you can initialize Firebase like this:</p>
 <CodeBlock lang="svelte" code={codeInitFirebase} />
 <p>
-	But dont worry, if you don't initialize Firebase, it will automatically be initialized only once
+	But don't worry, if you don't initialize Firebase, it will automatically be initialized only once
 	whenever a Sveltekit Fire component is used
 </p>
 <hr />
@@ -151,7 +151,7 @@ VITE_PUBLIC_FIREBASE_USER_PERSISTENCE="local"`} />
 <hr />
 <h1>Disclaimer</h1>
 <p>
-	This lib was initially intendend to be a PR to the awesome
+	This lib was initially intended to be a PR to the awesome
 	<a href="https://github.com/codediodeio/sveltefire">codediodeio/sveltefire</a> written by Jeff Delaney.
 
 	<br />
