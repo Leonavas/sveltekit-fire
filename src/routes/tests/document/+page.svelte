@@ -18,6 +18,6 @@
 	<!-- yay, the document loaded -->
 	{post.title}
 	<div slot="loading">Loading</div>
-	<div slot="fallback">Encontered an error: {error}</div>
+	<div slot="fallback">Encountered an error: {error}</div>
 </Doc>
 Pretty Landing Page
